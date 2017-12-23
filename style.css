@@ -1,6 +1,7 @@
 #board{
   border-collapse: collapse;
   width: 50%;
+  margin-left: 25%;
 }
 
 #heading{
@@ -15,4 +16,11 @@ td{
   border: 1px solid black;
   width: 10%;
   text-align: center;
+}
+
+#messageBox{
+  /*visibility: hidden;*/
+  text-align: center;
+  /*margin-left: 50%;*/
+  /*margin-top: 50%;*/
 }
