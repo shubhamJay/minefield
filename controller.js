@@ -17,13 +17,8 @@ const getPlayerMove = function(){
 };
 
 const displayMessage = function(message){
-  let messageBox = document.createElement("h1")
-  messageBox.id = "messageBox";
+  let messageBox = document.getElementById("messageBox");
   messageBox.innerText = message;
-  let body = document.getElementById("gameBody");
-  body.appendChild(messageBox);
-  let board = document.getElementById("board");
-  board.innerText = "";
 };
 
 const stopGame = function(){
@@ -42,7 +37,7 @@ const executeGame = function(){
   let currentMove = getPlayerMove();
   game.getValidMove();
   game.updateCurrentMove(currentMove);
-  if(game.playerMoves.length < 3) {
+  if(currentMove < 11) {
     updateBoard(currentMove,"green");
     return;
   };

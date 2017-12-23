@@ -2,7 +2,7 @@ const MindField = function(){
   this.currentValidMove = 0;
   this.playerLastPlayedMove = 0;
   this.playerMoves = [];
-  this.previousValidMoves = [];
+  this.previousValidMoves = [1,2,3,4,5,6,7,8,9];
 };
 
 MindField.prototype.startGame = function (playerFirstMove) {
@@ -28,11 +28,7 @@ MindField.prototype.generateValidMoves = function () {
   let validMoves =[];
   validMoves.push(lastMove+10);
   validMoves.push(lastMove+1);
-  if(lastMove%10 == 0 ){
-    validMoves.pop()
-  }else{
-    validMoves.push(lastMove-1);
-  }
+  lastMove%10 == 0 ?validMoves.pop() :validMoves.push(lastMove-1);
   if(lastMove%10 == 1)validMoves.pop() ;
   const checkIsGeneratedBefore = this.isRepeatedValidMove.bind(this);
   return validMoves.filter(checkIsGeneratedBefore);
