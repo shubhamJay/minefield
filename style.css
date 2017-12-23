@@ -24,3 +24,7 @@ td{
   /*margin-left: 50%;*/
   /*margin-top: 50%;*/
 }
+#startButton{
+  width: 150px;
+  height: 30px;
+}
