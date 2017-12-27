@@ -2,14 +2,15 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="modelOfMindField.js"></script>
+    <script type="text/javascript" src="modelOfMineField.js"></script>
     <script type="text/javascript"src="controller.js"></script>
-    <title>mind Field</title>
+    <title>Mine Field</title>
   </head>
-  <body id="gameBody" onload="generateBoard()">
-    <h1 id="heading">Mind field</h1>
+  <body id="gameBody" >
+    <h1 id="heading">Mine field</h1>
     <h1 id="messageBox"></h1>
-    <button onclick="startGame()">start Game</button>
+    <button onclick="startGame()" id="startButton" class="showButton">start Game</button>
+    <button onclick="restartGame()" id="restartButton" class="hideButton">PLAY AGAIN??</button>
     <table id="board" >
     </table>
   </body>

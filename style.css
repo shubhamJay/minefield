@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(232, 197, 251);
+}
+
 #board{
   border-collapse: collapse;
   width: 50%;
@@ -19,12 +23,26 @@ td{
 }
 
 #messageBox{
-  /*visibility: hidden;*/
   text-align: center;
-  /*margin-left: 50%;*/
-  /*margin-top: 50%;*/
 }
-#startButton{
+
+button{
   width: 150px;
   height: 30px;
+}
+
+.showButton{
+  visibility: visible;
+  margin-top: 20em;
+  margin-left: 45%;
+  width: 150px;
+  height: 30px;
+}
+
+.hideButton{
+  visibility: hidden;
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 00px;
+  height: 00px;
 }
