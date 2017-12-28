@@ -1,22 +1,22 @@
 const MineField = function(gridSize) {
   this.gridSize = gridSize;
   this.currentValidMove = 0;
-  this.currentValidMoves = [];
+  this.currentPossibleMoves = [];
   this.playerLastPlayedMove = 1;
   this.chances = Math.ceil(gridSize/2);
   this.playerMoves = [];
-  this.previousValidMoves = [];
+  this.previousPossibleMoves = [];
 };
 
-MineField.prototype.generateInitialValidMoves = function () {
-  let initialValidMoves =[];
-  initialValidMoves.length = this.gridSize;
-  initialValidMoves = initialValidMoves.fill('').map((ele,index)=>index+1);
-  this.previousValidMoves = initialValidMoves;
+MineField.prototype.generateInitialPossibleMoves = function () {
+  let initialPossibleMoves =[];
+  initialPossibleMoves.length = this.gridSize;
+  initialPossibleMoves = initialPossibleMoves.fill('').map((ele,index)=>index+1);
+  this.previousPossibleMoves = initialPossibleMoves;
 };
 
 MineField.prototype.startGame = function(playerFirstMove) {
-  this.generateInitialValidMoves();
+  this.generateInitialPossibleMoves();
   this.playerLastPlayedMove = playerFirstMove;
   this.currentValidMove = playerFirstMove;
   // this.playerMoves.push(playerFirstMove);
@@ -29,26 +29,26 @@ MineField.prototype.updateCurrentMove = function(move) {
 };
 
 MineField.prototype.getValidMove = function() {
-  let validMoves = this.generateValidMoves();
-  this.currentValidMoves = validMoves;
-  this.previousValidMoves = this.previousValidMoves.concat(validMoves);
-  let number = Math.floor(Math.random() * validMoves.length);
-  this.currentValidMove = validMoves[number];
+  let possibleMoves = this.generatePossibleMoves();
+  this.currentPossibleMoves = possibleMoves;
+  this.previousPossibleMoves = this.previousPossibleMoves.concat(possibleMoves);
+  let number = Math.floor(Math.random() * possibleMoves.length);
+  this.currentValidMove = possibleMoves[number];
   return this.currentValidMove;
 };
 
-MineField.prototype.generateValidMoves = function() {
+MineField.prototype.generatePossibleMoves = function() {
   let lastMove = this.currentValidMove;
-  let validMoves = [];
-  validMoves.push(lastMove + this.gridSize);
-  if (lastMove % this.gridSize != 0)validMoves.push(lastMove + 1);
-  if (lastMove % this.gridSize != 1)validMoves.push(lastMove - 1);
-  const checkIsGeneratedBefore = this.isRepeatedValidMove.bind(this);
-  return validMoves.filter(checkIsGeneratedBefore);
+  let possibleMoves = [];
+  possibleMoves.push(lastMove + this.gridSize);
+  if (lastMove % this.gridSize != 0)possibleMoves.push(lastMove + 1);
+  if (lastMove % this.gridSize != 1)possibleMoves.push(lastMove - 1);
+  const checkIsGeneratedBefore = this.isRepeatedPossibleMove.bind(this);
+  return possibleMoves.filter(checkIsGeneratedBefore);
 };
 
-MineField.prototype.isRepeatedValidMove = function(move) {
-  return !this.previousValidMoves.includes(move);
+MineField.prototype.isRepeatedPossibleMove = function(move) {
+  return !this.previousPossibleMoves.includes(move);
 };
 
 MineField.prototype.isBomb = function() {

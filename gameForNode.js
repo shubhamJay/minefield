@@ -1,11 +1,12 @@
 const readline = require('readline-sync');
 const MineField = require('./MineField.js');
+const gridSize = 10;
 
-let game = new MineField(10);
+let game = new MineField(gridSize);
 
 const dataToDisplay = function(result){
   return {lastStepResult:result,
-    nextValidMoves:game.currentValidMoves,
+    nextPossibleMoves:game.currentPossibleMoves,
     playerPreviousMoves:game.playerMoves,
     playerChances:game.chances,
   };

@@ -21,22 +21,22 @@ test["MineField.updateCurrentMove should update current move in playerMoves and 
   assert.deepEqual(game.playerMoves,[10,45]);
 };
 
-test["MineField.generateValidMoves() should generate valid moves according to previous move"] = function() {
+test["MineField.generatePossibleMoves() should generate valid moves according to previous move"] = function() {
   let game = new MineField(gridSize);
   game.startGame(5);
-  assert.deepEqual(game.currentValidMoves,[15]);
+  assert.deepEqual(game.currentPossibleMoves,[15]);
 };
 
-test["MineField.getValidMove should give next valid movec and update allvalidMoves and currentValidMove"]= function(){
+test["MineField.getValidMove should give next valid movec and update allPossibleMoves and currentValidMove"]= function(){
   let game = new MineField(gridSize);
   game.startGame(5);
-  assert.deepEqual(game.previousValidMoves,[1,2,3,4,5,6,7,8,9,10,15]);
+  assert.deepEqual(game.previousPossibleMoves,[1,2,3,4,5,6,7,8,9,10,15]);
 };
 
-test["MineField.generateInitialValidMoves should generate all valid moves (from 1 to gridSize) for first step"] = function(){
+test["MineField.generateInitialPossibleMoves should generate all valid moves (from 1 to gridSize) for first step"] = function(){
   let game =new MineField(gridSize);
-  game.generateInitialValidMoves();
-  assert.deepEqual(game.previousValidMoves,[1,2,3,4,5,6,7,8,9,10]);
+  game.generateInitialPossibleMoves();
+  assert.deepEqual(game.previousPossibleMoves,[1,2,3,4,5,6,7,8,9,10]);
 };
 
 
