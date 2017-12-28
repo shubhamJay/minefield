@@ -19,7 +19,7 @@ MineField.prototype.startGame = function(playerFirstMove) {
   this.generateInitialValidMoves();
   this.playerLastPlayedMove = playerFirstMove;
   this.currentValidMove = playerFirstMove;
-  this.playerMoves.push(playerFirstMove);
+  // this.playerMoves.push(playerFirstMove);
   this.getValidMove();
 };
 
@@ -68,11 +68,12 @@ MineField.prototype.isGameOver = function() {
 };
 
 MineField.prototype.hasPlayerWon = function() {
-  return this.playerLastPlayedMove > 90 && this.playerMoves.length > 9;
+  let lastRowStart = this.gridSize*(this.gridSize-1);
+  return this.playerLastPlayedMove > lastRowStart && this.playerMoves.length > this.gridSize;
 };
 
 MineField.prototype.isFirstMove = function () {
-  return this.playerMoves.length == 1;
+  return this.playerMoves.length <= 1;
 };
 
 module.exports = MineField;
