@@ -12,7 +12,6 @@ const dataToDisplay = function(result){
   };
 };
 
-
 const stopGame = function(){
   process.exit();
 };
@@ -35,13 +34,13 @@ const executeCurrentMove = function(){
     return dataToDisplay("bomb");
   } else {
     game.gameInPlay()
-    return dataToDisplay("notBomb");
+    return dataToDisplay("your are safe");
   };
 };
 
 const isFirstMove = function(move){
   return game.isFirstMove() && move <= 10;
-}
+};
 
 const executeGame = function(){
   console.log("your move");
@@ -54,7 +53,7 @@ const executeGame = function(){
   game.updateCurrentMove(move);
   if(isFirstMove(move)){
     game.startGame(move);
-    data = dataToDisplay("notBomb");
+    data = dataToDisplay("your are safe");
   } else {
     data = executeCurrentMove();
   };
