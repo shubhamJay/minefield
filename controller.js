@@ -1,4 +1,4 @@
-const gridSize = 5;
+const gridSize = 10;
 
 const getBoard = function () {
   return document.getElementById("board");
