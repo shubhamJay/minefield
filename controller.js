@@ -1,15 +1,13 @@
-const gridSize = 10;
-
 const getBoard = function () {
   return document.getElementById("board");
 };
 
-const generateBoard = function(gridSize) {
+const generateBoard = function(grid) {
   let board=getBoard();
-  for (var rowNumber = 0; rowNumber < gridSize; rowNumber++) {
+  for (var rowNumber = 0; rowNumber < grid; rowNumber++) {
     row = board.insertRow();
-    for (var cellNumber = 0; cellNumber < gridSize; cellNumber++) {
-      numberOfCell = (rowNumber * gridSize) + cellNumber + 1;
+    for (var cellNumber = 0; cellNumber < grid; cellNumber++) {
+      numberOfCell = (rowNumber * grid) + cellNumber + 1;
       cell = row.insertCell();
       cell.id = numberOfCell;
       cell.innerText = numberOfCell;
@@ -59,6 +57,7 @@ const showChances = function(){
 
 // =============>>>>>>>> controller <<<<<<<<<<<<=============///////
 
+const gridSize = 10;
 const game = new MineField(gridSize);
 
 const executeResultCondition = function(currentMove) {
@@ -110,6 +109,6 @@ const startGame = function() {
   updateChance(game.chances)
   showChances()
   let board = getBoard();
-  generateBoard(gridSize);
+  generateBoard(game.gridSize);
   board.addEventListener("click", executeGame);
 };

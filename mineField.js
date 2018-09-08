@@ -3,7 +3,7 @@ const MineField = function(gridSize) {
   this.currentValidMove = 0;
   this.currentPossibleMoves = [];
   this.playerLastPlayedMove = 1;
-  this.chances = Math.ceil(gridSize/2);
+  this.chances = Math.ceil(gridSize);
   this.playerMoves = [];
   this.previousPossibleMoves = [];
 };
@@ -19,7 +19,6 @@ MineField.prototype.startGame = function(playerFirstMove) {
   this.generateInitialPossibleMoves();
   this.playerLastPlayedMove = playerFirstMove;
   this.currentValidMove = playerFirstMove;
-  this.playerMoves.push(playerFirstMove);
   this.getValidMove();
 };
 
@@ -69,7 +68,7 @@ MineField.prototype.isGameOver = function() {
 
 MineField.prototype.hasPlayerWon = function() {
   let lastRowStart = this.gridSize*(this.gridSize-1);
-  return this.playerLastPlayedMove > lastRowStart && this.playerMoves.length > this.gridSize;
+  return this.playerLastPlayedMove > lastRowStart && this.playerMoves.length >= this.gridSize;
 };
 
 MineField.prototype.isFirstMove = function () {

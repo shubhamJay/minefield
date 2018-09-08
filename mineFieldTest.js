@@ -1,5 +1,5 @@
 const assert = require('assert');
-const MineField = require('./modelOfMineField.js');
+const MineField = require('./mineField.js');
 const gridSize = 10;
 
 let test = {};
@@ -56,9 +56,9 @@ test["MineField.hasPlayerWon should check that has player won"] = function(){
   game.playerLastPlayedMove = 91;
   assert.ok(game.hasPlayerWon());
 
-  game.playerMoves = [1,11,21,31,41,51,61,71,81,91];
+  game.playerMoves = [1,11,21,31,41,51,61,71,81];
   game.currentValidMove = 82;
-  game.playerLastPlayedMove = 91;
+  game.playerLastPlayedMove = 81;
   assert.ok(!game.hasPlayerWon());
 
   game.playerMoves = [1,11,21,31,41];

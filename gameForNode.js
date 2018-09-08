@@ -1,7 +1,7 @@
 const readline = require('readline-sync');
 const MineField = require('./MineField.js');
-const gridSize = 10;
 
+const gridSize = 10;
 let game = new MineField(gridSize);
 
 const dataToDisplay = function(result){
@@ -66,4 +66,4 @@ const startGame = function(){
   executeGame();
 };
 
-exports.startGame = startGame;
+startGame();

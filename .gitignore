@@ -1,4 +1,4 @@
-server.js
 .gitignore
-modelTest.js
 runTest.js
+node_modules/
+package-lock.json

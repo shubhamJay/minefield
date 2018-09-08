@@ -6,6 +6,5 @@ In the game, you have go through the grid without stepping on the bomb. You get 
 
 
 ## In the game I have provided 2 ways to play.
-* Browser - Just open Index.html in browser and start playing.
-* Commandline - Go to node repl. Then `let game = require("./gameForNode.js")` and do `game.startGame()` and start playing via 
-commandline.
+* Browser - Clone the repo. Do `npm init`. Open Index.html in browser and start playing.
+* Commandline - Clone the repo. Do `npm init`. and then type `node gameForNode.js` and you can start playing.
