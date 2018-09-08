@@ -43,7 +43,19 @@ const updateBoard = function(currentMove, color) {
   currentMoveCell.style.backgroundColor = color;
 };
 
+const updateChance = function(chances){
+  let chancesBox = document.getElementById("chanceBox");
+  chancesBox.innerText = chances;
+}
+const hideStartButton = function(){
+  let startButton = document.getElementById("startButton");
+  startButton.className = "hideButton";
+}
 
+const showChances = function(){
+  let chances = document.getElementById("chanceContainer");
+  chances.className = "show";
+}
 
 // =============>>>>>>>> controller <<<<<<<<<<<<=============///////
 
@@ -69,7 +81,7 @@ const isFirstMove = function(currentMove) {
 const executeCurrentMove = function(currentMove) {
   if (game.isBomb()) {
     updateBoard(currentMove, "red");
-    game.actionOnBomb();
+    updateChance(game.actionOnBomb());
   } else {
     game.gameInPlay();
   };
@@ -94,8 +106,9 @@ const restartGame = function(){
 };
 
 const startGame = function() {
-  let startButton = document.getElementById("startButton");
-  startButton.className = "hideButton";
+  hideStartButton()
+  updateChance(game.chances)
+  showChances()
   let board = getBoard();
   generateBoard(gridSize);
   board.addEventListener("click", executeGame);

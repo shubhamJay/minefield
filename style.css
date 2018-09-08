@@ -12,6 +12,10 @@ body{
   text-align: center;
 }
 
+#chanceContainer{
+  text-align: center;
+}
+
 tr{
   height: 4em;
 }
@@ -45,4 +49,11 @@ button{
   margin-left: 0px;
   width: 00px;
   height: 00px;
+}
+
+.hide{
+  visibility: hidden;
+}
+.show{
+  visibility: visible;
 }

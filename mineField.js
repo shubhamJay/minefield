@@ -19,7 +19,7 @@ MineField.prototype.startGame = function(playerFirstMove) {
   this.generateInitialPossibleMoves();
   this.playerLastPlayedMove = playerFirstMove;
   this.currentValidMove = playerFirstMove;
-  // this.playerMoves.push(playerFirstMove);
+  this.playerMoves.push(playerFirstMove);
   this.getValidMove();
 };
 
@@ -56,7 +56,7 @@ MineField.prototype.isBomb = function() {
 };
 
 MineField.prototype.actionOnBomb = function() {
-  --this.chances;
+  return --this.chances;
 };
 
 MineField.prototype.gameInPlay = function () {
